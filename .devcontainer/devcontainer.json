@@ -1,8 +1,17 @@
 {
+  "name": "ClickHouse Dev Environment",
   "image": "clickhouse/clickhouse-server:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:1": {}
+  },
+  "forwardPorts": [8123, 9000],
   "customizations": {
     "vscode": {
-      "extensions": ["ckman.clickhouse"]
+      "extensions": [
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-clickhouse"
+      ]
     }
-  }
+  },
+  "postCreateCommand": "apt-get update && apt-get install -y clickhouse-client"
 }
